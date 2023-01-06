@@ -1,0 +1,13 @@
+mysql> SELECT r.id as route_id, r.name, SUM(rp.distance) as total_distance
+    -> FROM routes r
+    -> JOIN route_points rp
+    -> ON r.id = rp.route_id
+    -> GROUP BY r.id, r.name
+    -> ORDER by route_id DESC;
++----------+-------+----------------+
+| route_id | name  | total_distance |
++----------+-------+----------------+
+|        2 | 300-A |            150 |
+|        1 | 200-D |            100 |
++----------+-------+----------------+
+
